@@ -6,29 +6,29 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 00:25:15 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/03 00:41:50 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/03 17:00:01 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libftprintf.h"
 
-t_printer	*init_printer(const char *str)
+int	*printer(char *str, size_t len)
 {
-	t_printer	printer;
+	static int	size = 0;
 
-	printer.location = str;
-	printer.size = 0;
-	return (&printer);
-}
-
-void	print_any(t_printer *printer, char *str, size_t len)
-{
 	write(1, str, len);
-	printer->size += len;
+	size += len;
+	return (&size);
 }
 
-void	printf_current(t_printer *printer, size_t len)
+int	close_printer(void)
 {
-	write(1, printer->location, len);
-	printer->size += len;
+	int	size;
+	int	*size_ptr;
+
+	size_ptr = printer("", 0);
+	size = *size_ptr;
+	*size_ptr = 0;
+	return (size);
 }
