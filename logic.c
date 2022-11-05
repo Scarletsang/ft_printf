@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:20 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/03 17:25:06 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/05 19:19:54 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ const char	*run_parser_logic(const char *str, va_list *subs)
 	original_str = str;
 	states = init_parser();
 	run_parser(&str, states, &parse_flags);
-	run_parser(&str, states, &parse_min);
+	run_parser(&str, states, &parse_width);
 	if (*str++ == '.')
 	{
-		states->max_width = 0;
-		run_parser(&str, states, &parse_max);
+		states->precision = 0;
+		run_parser(&str, states, &parse_precision);
 	}
 	if (ft_strchr(*str, "cspdiuxX%"))
 	{

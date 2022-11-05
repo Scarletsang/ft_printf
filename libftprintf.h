@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/03 17:25:12 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/05 19:27:56 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 typedef struct s_parser
 {
 	char	*flags_end;
-	int		min_width;
-	int		max_width;
+	int		width;
+	int		precision;
 	char	check_failed;
 }				t_parser;
 
@@ -36,17 +36,9 @@ void		run_parser(char **str, t_parser *states, t_parser_func parser);
 
 void		parse_flags(const char *str, t_parser *states);
 
-void		parse_min(const char *str, t_parser *states);
+void		parse_width(const char *str, t_parser *states);
 
-void		parse_max(const char *str, t_parser *states);
-
-////////////////////////////
-//////    Printers    //////
-////////////////////////////
-
-int			*printer(char *str, size_t len);
-
-int			close_printer(void);
+void		parse_precision(const char *str, t_parser *states);
 
 //////////////////////////////
 //////    Core logic    //////
