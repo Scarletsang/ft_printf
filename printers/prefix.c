@@ -1,50 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   diu.c                                              :+:      :+:    :+:   */
+/*   prefix.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 17:24:36 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/05 20:21:35 by htsang           ###   ########.fr       */
+/*   Created: 2022/11/05 19:22:54 by htsang            #+#    #+#             */
+/*   Updated: 2022/11/05 19:59:50 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printers.h"
 
-static void	print_long_recurse(size_t n, int sign)
+void	print_zeros(size_t len)
 {
-	if (n > 0)
+	while (len)
 	{
-		print_long_recurse(n / 10, sign);
-		printer(n % 10 * sign + '0', 1);
+		printer("0", 1);
 	}
 }
 
-/*
-** @brief Print a number.
-**
-** @param n:  the number
-*/
-static void	print_long(long n)
+void	print_spaces(size_t len)
 {
-	int	sign;
-
-	sign = 1;
-	if (n < 0)
+	while (len)
 	{
-		sign = -1;
+		printer(" ", 1);
 	}
-	print_long_recurse(n / 10, sign);
-	printer(n % 10 * sign + '0', 1);
 }
 
-void	print_di(int n)
+void	print_plus(void)
 {
-	print_long(n);
+	printer("+", 1);
 }
 
-void	print_u(unsigned int n)
+void	print_minus(void)
 {
-	print_long(n);
+	printer("-", 1);
+}
+
+void	print_0x(void)
+{
+	printer("0x", 2);
 }

@@ -6,24 +6,18 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 17:24:36 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/03 17:35:55 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/05 19:53:38 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "printers.h"
 
-void	print_c(va_list *subs)
+void	print_c(char c)
 {
-	char	c;
-
-	c = va_arg(*subs, char);
 	printer(&c, 1);
 }
 
-void	print_s(va_list *subs)
+void	print_s(char *str, size_t len)
 {
-	char	*str;
-
-	str = va_arg(*subs, char *);
-	printer(str, ft_strlen(str));
+	printer(str, len);
 }
