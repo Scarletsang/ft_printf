@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 13:57:07 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 14:19:14 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,36 @@ typedef struct s_parser
 	int		precision;
 }				t_parser;
 
-typedef char	(*t_parser_func)(const char *, t_parser *);
+typedef char	(*t_lexer_func)(const char *, t_parser *);
+
+///////////////////////////
+//////    Lexers    //////
+///////////////////////////
+
+t_parser	*init_lexer(void);
+
+void		run_lexer(char **str, t_parser *states, t_lexer_func parser);
+
+char		lex_flags(const char *str, t_parser *states);
+
+char		lex_width(const char *str, t_parser *states);
+
+char		lex_precision(const char *str, t_parser *states);
 
 ///////////////////////////
 //////    Parsers    //////
 ///////////////////////////
 
-t_parser	*init_parser(void);
+int			va_arg_intlen(va_list *args, int base);
 
-void		run_parser(char **str, t_parser *states, t_parser_func parser);
-
-char		parse_flags(const char *str, t_parser *states);
-
-char		parse_width(const char *str, t_parser *states);
-
-char		parse_precision(const char *str, t_parser *states);
+int			va_arg_unsigned_intlen(va_list *args, int base);
 
 //////////////////////////////
 //////    Core logic    //////
 //////////////////////////////
 
 const char	*run_printer_logic(const char *str, \
-t_parser states, va_list *subs);
+t_parser *states, va_list *subs);
 
 const char	*run_parser_logic(const char *str, va_list *subs);
 

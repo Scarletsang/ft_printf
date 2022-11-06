@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsers.c                                          :+:      :+:    :+:   */
+/*   lexers.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 20:47:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 13:57:31 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 14:19:12 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-t_parser	*init_parser(void)
+t_parser	*init_lexer(void)
 {
-	t_parser	parser;
+	t_parser	lexer;
 
-	parser.flags_end = NULL;
-	parser.width = 0;
-	parser.precision = -1;
-	return (&parser);
+	lexer.flags_end = NULL;
+	lexer.width = 0;
+	lexer.precision = -1;
+	lexer.sub_strlen = 0;
+	return (&lexer);
 }
 
-void	run_parser(char **str, t_parser *states, t_parser_func parser)
+void	run_lexer(char **str, t_parser *states, t_lexer_func lexer)
 {
 	while (**str)
 	{
-		if (parser(*str, &states))
+		if (lexer(*str, &states))
 		{
 			return ;
 		}
@@ -37,7 +38,7 @@ void	run_parser(char **str, t_parser *states, t_parser_func parser)
 	}
 }
 
-char	parse_flags(const char *str, t_parser *states)
+char	lex_flags(const char *str, t_parser *states)
 {
 	char	check_failed;
 	
@@ -50,7 +51,7 @@ char	parse_flags(const char *str, t_parser *states)
 	return (check_failed);
 }
 
-char	parse_width(const char *str, t_parser *states)
+char	lex_width(const char *str, t_parser *states)
 {
 	char	check_failed;
 	
@@ -63,7 +64,7 @@ char	parse_width(const char *str, t_parser *states)
 	return (check_failed);
 }
 
-char	parse_precision(const char *str, t_parser *states)
+char	lex_precision(const char *str, t_parser *states)
 {
 	char	check_failed;
 	
