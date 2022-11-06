@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 19:22:54 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/05 19:59:50 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 13:25:00 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printers.h"
 
-void	print_zeros(size_t len)
+void	print_zeros(unsigned int len)
 {
 	while (len)
 	{
@@ -20,7 +20,7 @@ void	print_zeros(size_t len)
 	}
 }
 
-void	print_spaces(size_t len)
+void	print_spaces(unsigned int len)
 {
 	while (len)
 	{

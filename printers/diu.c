@@ -6,18 +6,18 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 17:24:36 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/05 20:21:35 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 13:25:40 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printers.h"
 
-static void	print_long_recurse(size_t n, int sign)
+static void	print_long_recurse(long n, int sign)
 {
 	if (n > 0)
 	{
 		print_long_recurse(n / 10, sign);
-		printer(n % 10 * sign + '0', 1);
+		print_c(n % 10 * sign + '0');
 	}
 }
 
@@ -36,7 +36,7 @@ static void	print_long(long n)
 		sign = -1;
 	}
 	print_long_recurse(n / 10, sign);
-	printer(n % 10 * sign + '0', 1);
+	print_c(n % 10 * sign + '0');
 }
 
 void	print_di(int n)
