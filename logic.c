@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:20 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 14:28:45 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 21:01:40 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,28 @@ const char	*run_parser_logic(const char *str, va_list *subs)
 	t_parser	*states;
 
 	original_str = str;
-	states = init_lexer();
-	run_lexer(&str, states, &lex_flags);
-	run_lexer(&str, states, &lex_width);
+	states = init_parser();
+	run_parser(&str, states, &parse_flags);
+	run_parser(&str, states, &parse_width);
 	if (*str++ == '.')
 	{
 		states->precision = 0;
-		run_lexer(&str, states, &lex_precision);
+		run_parser(&str, states, &parse_precision);
 	}
 	if (ft_strchr(*str, "cs%"))
 	{
-		parse_str(*str, states);
+		calc_states_str(*str, states, subs);
 		return (run_printer_logic(str, states, subs));
 	}
 	else if (ft_strchr(*str, "diuxXp"))
 	{
-		parse_num(*str, states);
+		calc_states_num(*str, states, subs);
 		return (run_printer_logic(str, states, subs));
 	}
 	return (original_str);
 }
 
-int	simple_printer_logic(const char *str, va_list *subs)
+int	main_logic(const char *str, va_list *subs)
 {
 	while (*str)
 	{
