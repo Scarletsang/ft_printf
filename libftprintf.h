@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 14:45:56 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 21:44:16 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
+/**
+ * in cs%:
+ * width = fill_len
+ * precision = -1
+ * 
+ * in diuxXp:
+ * width = space_len / fill_len
+ * precision = zero_len
+*/
 typedef struct s_parser
 {
 	char	*flags_end;
@@ -26,33 +35,45 @@ typedef struct s_parser
 
 typedef char	(*t_lexer_func)(const char *, t_parser *);
 
-///////////////////////////
-//////    Lexers    //////
-///////////////////////////
+///////////////////////////////
+//////    Target func    //////
+///////////////////////////////
 
-t_parser	*init_lexer(void);
-
-void		run_lexer(char **str, t_parser *states, t_lexer_func parser);
-
-char		lex_flags(const char *str, t_parser *states);
-
-char		lex_width(const char *str, t_parser *states);
-
-char		lex_precision(const char *str, t_parser *states);
+int			ft_printf(const char *str, ...);
 
 ///////////////////////////
 //////    Parsers    //////
 ///////////////////////////
 
-int			va_arg_intlen(va_list *args, int base);
+t_parser	*init_parser(void);
 
-int			va_arg_unsigned_intlen(va_list *args, int base);
+void		run_parser(char **str, t_parser *states, t_lexer_func parser);
+
+char		parse_flags(const char *str, t_parser *states);
+
+char		parse_width(const char *str, t_parser *states);
+
+char		parse_precision(const char *str, t_parser *states);
+
+///////////////////////////////
+//////    Calculators    //////
+///////////////////////////////
+
+int			va_arg_numlen(va_list *subs, char format);
+
+int			va_arg_strlen(va_list *args);
+
+void		calc_states_str(char format, t_parser *states, va_list *subs);
+
+void		calc_states_num(char format, t_parser *states, va_list *subs);
+
+///////////////////////////
+//////     Utils     //////
+///////////////////////////
 
 char		has_flag(t_parser *states, char flag);
 
-void		parse_str(const char *str, t_parser states);
-
-void		parse_num(const char *str, t_parser states);
+char		has_flags(t_parser *states, char *flags);
 
 //////////////////////////////
 //////    Core logic    //////
@@ -63,6 +84,6 @@ t_parser *states, va_list *subs);
 
 const char	*run_parser_logic(const char *str, va_list *subs);
 
-int			simple_printer_logic(const char *str, va_list *subs);
+int			main_logic(const char *str, va_list *subs);
 
 #endif
