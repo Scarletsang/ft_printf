@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsers_utils.c                                    :+:      :+:    :+:   */
+/*   calc_len.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 13:18:47 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 14:44:20 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 21:38:12 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ static int	numlen(long n, int base)
 	return (len);
 }
 
-int	va_arg_intlen(va_list *args, int base)
+static int	va_arg_intlen(va_list *args)
 {
 	va_list	copy;
 	int		len;
 
 	va_copy(*args, copy);
-	len = numlen(va_arg(copy, int), base);
+	len = numlen(va_arg(copy, int), 10);
 	va_close(copy);
 	return (len);
 }
 
-int	va_arg_unsigned_intlen(va_list *args, int base)
+static int	va_arg_unsigned_intlen(va_list *args, int base)
 {
 	va_list	copy;
 	int		len;
@@ -47,18 +47,30 @@ int	va_arg_unsigned_intlen(va_list *args, int base)
 	return (len);
 }
 
-char	has_flag(t_parser *states, char flag)
+int	va_arg_numlen(va_list *subs, char format)
 {
-	int	i;
-
-	i = 0;
-	while (*(states->flags_end - i) != '%')
+	if (ft_strchr("di", format))
 	{
-		if (*(states->flags_end - i) == flag)
-		{
-			return (flag);
-		}
-		i++;
+		return (va_arg_intlen(subs));
 	}
-	return (0);
+	if (format == 'u')
+	{
+		return (va_arg_unsigned_intlen(subs, 10));
+	}
+	if (ft_strchr("xXp", format))
+	{
+		return (va_arg_unsigned_intlen(subs, 16));
+	}
+	return (-1);
+}
+
+int	va_arg_strlen(va_list *args)
+{
+	va_list	copy;
+	int		len;
+
+	va_copy(*args, copy);
+	len = ft_strlen(va_arg(copy, char *));
+	va_close(copy);
+	return (len);
 }
