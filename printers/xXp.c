@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:02:49 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 13:12:39 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 14:39:50 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	print_xp(unsigned int n)
 	print_hex(n, 'a');
 }
 
-void	print_X(unsigned int n)
+void	print_x_upper(unsigned int n)
 {
 	print_hex(n, 'A');
 }

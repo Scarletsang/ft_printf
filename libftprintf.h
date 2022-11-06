@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 14:19:14 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 14:45:56 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ char		lex_precision(const char *str, t_parser *states);
 int			va_arg_intlen(va_list *args, int base);
 
 int			va_arg_unsigned_intlen(va_list *args, int base);
+
+char		has_flag(t_parser *states, char flag);
+
+void		parse_str(const char *str, t_parser states);
+
+void		parse_num(const char *str, t_parser states);
 
 //////////////////////////////
 //////    Core logic    //////

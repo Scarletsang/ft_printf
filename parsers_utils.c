@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   numlen.c                                           :+:      :+:    :+:   */
+/*   parsers_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 13:18:47 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 14:24:49 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 14:44:20 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
+#include "libftprintf.h"
 
 static int	numlen(long n, int base)
 {
@@ -45,4 +45,20 @@ int	va_arg_unsigned_intlen(va_list *args, int base)
 	len = numlen(va_arg(copy, unsigned int), base);
 	va_close(copy);
 	return (len);
+}
+
+char	has_flag(t_parser *states, char flag)
+{
+	int	i;
+
+	i = 0;
+	while (*(states->flags_end - i) != '%')
+	{
+		if (*(states->flags_end - i) == flag)
+		{
+			return (flag);
+		}
+		i++;
+	}
+	return (0);
 }

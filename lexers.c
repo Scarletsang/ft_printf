@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 20:47:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 14:19:12 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 14:38:57 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	run_lexer(char **str, t_parser *states, t_lexer_func lexer)
 char	lex_flags(const char *str, t_parser *states)
 {
 	char	check_failed;
-	
+
 	check_failed = 1;
 	if (ft_strchr("+ #0-", *str))
 	{
@@ -54,7 +54,7 @@ char	lex_flags(const char *str, t_parser *states)
 char	lex_width(const char *str, t_parser *states)
 {
 	char	check_failed;
-	
+
 	check_failed = 1;
 	if (ft_isdigit(*str))
 	{
@@ -67,7 +67,7 @@ char	lex_width(const char *str, t_parser *states)
 char	lex_precision(const char *str, t_parser *states)
 {
 	char	check_failed;
-	
+
 	check_failed = 1;
 	if (ft_isdigit(*str))
 	{

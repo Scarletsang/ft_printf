@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 19:26:22 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 13:24:50 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 14:45:05 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	print_u(unsigned int n);
 
 void	print_xp(unsigned int n);
 
-void	print_X(unsigned int n);
+void	print_x_upper(unsigned int n);
 
 #endif
