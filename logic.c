@@ -31,9 +31,15 @@ const char	*run_parser_logic(const char *str, va_list *subs)
 		states->precision = 0;
 		run_lexer(&str, states, &lex_precision);
 	}
-	if (ft_strchr(*str, "cspdiuxX%"))
+	if (ft_strchr(*str, "cs%"))
 	{
-		return (run_printer_logic(str, *states, subs));
+		parse_str(*str, states);
+		return (run_printer_logic(str, states, subs));
+	}
+	else if (ft_strchr(*str, "diuxXp"))
+	{
+		parse_num(*str, states);
+		return (run_printer_logic(str, states, subs));
 	}
 	return (original_str);
 }

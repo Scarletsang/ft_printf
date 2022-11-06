@@ -21,6 +21,7 @@ typedef struct s_parser
 	char	*flags_end;
 	int		width;
 	int		precision;
+	int		sub_strlen;
 }				t_parser;
 
 typedef char	(*t_lexer_func)(const char *, t_parser *);
