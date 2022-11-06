@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:13:10 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 21:38:09 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 22:09:21 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	prefixlen(char format, t_parser *states)
 	{
 		return (1);
 	}
-	if (ft_strchr("xX", format) && has_flag(states, '#') || format == 'p')
+	if ((ft_strchr("xX", format) && has_flag(states, '#')) || format == 'p')
 	{
 		return (2);
 	}

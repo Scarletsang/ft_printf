@@ -6,34 +6,31 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 20:47:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 20:16:41 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 22:07:43 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-t_parser	*init_parser(void)
+void	init_parser(t_parser *parser)
 {
-	t_parser	parser;
-
-	parser.flags_end = NULL;
-	parser.width = 0;
-	parser.precision = -1;
-	parser.sub_strlen = 0;
-	return (&parser);
+	parser->flags_end = NULL;
+	parser->width = 0;
+	parser->precision = -1;
+	parser->sub_strlen = 0;
 }
 
-void	run_parser(char **str, t_parser *states, t_lexer_func parser)
+void	run_parser(const char **str, t_parser *states, t_lexer_func parser)
 {
 	while (**str)
 	{
-		if (parser(*str, &states))
+		if (parser(*str, states))
 		{
 			return ;
 		}
 		else
 		{
-			*str++;
+			(*str)++;
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:02:49 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 14:39:50 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 22:10:59 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	print_hex_recurse(unsigned int n, char alphabet_case)
 	if (n)
 	{
 		print_hex_recurse(n >> 4, alphabet_case);
-		if (n & 15 > 9)
+		if ((n & 15) > 9)
 		{
 			print_c(n & 15 - 10 + alphabet_case);
 		}
@@ -31,7 +31,7 @@ static void	print_hex_recurse(unsigned int n, char alphabet_case)
 static void	print_hex(unsigned int n, char alphabet_case)
 {
 	print_hex_recurse(n >> 4, alphabet_case);
-	if (n & 15 > 9)
+	if ((n & 15) > 9)
 	{
 		print_c(n & 15 - 10 + alphabet_case);
 	}

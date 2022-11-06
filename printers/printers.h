@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 19:26:22 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 14:45:05 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 22:01:25 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 //////    Core    //////
 ////////////////////////
 
-int		*printer(char *str, unsigned int len);
+int		*printer(const char *str, unsigned int len);
 
 int		close_printer(void);
 

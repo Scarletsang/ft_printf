@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 21:44:16 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/06 22:08:08 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include "libft/libft.h"
+# include "printers/printers.h"
 
 /**
  * in cs%:
@@ -27,10 +28,10 @@
 */
 typedef struct s_parser
 {
-	char	*flags_end;
-	int		width;
-	int		precision;
-	int		sub_strlen;
+	const char	*flags_end;
+	int			width;
+	int			precision;
+	int			sub_strlen;
 }				t_parser;
 
 typedef char	(*t_lexer_func)(const char *, t_parser *);
@@ -45,9 +46,9 @@ int			ft_printf(const char *str, ...);
 //////    Parsers    //////
 ///////////////////////////
 
-t_parser	*init_parser(void);
+void		init_parser(t_parser *parser);
 
-void		run_parser(char **str, t_parser *states, t_lexer_func parser);
+void		run_parser(const char **str, t_parser *states, t_lexer_func parser);
 
 char		parse_flags(const char *str, t_parser *states);
 
