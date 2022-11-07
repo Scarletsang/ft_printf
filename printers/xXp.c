@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:02:49 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 20:41:51 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 22:11:05 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printers.h"
 
-static void	print_hex_recurse(unsigned int n, char alphabet_case)
+static void	print_hex_recurse(unsigned long n, char alphabet_case)
 {
 	if (n)
 	{
@@ -28,7 +28,7 @@ static void	print_hex_recurse(unsigned int n, char alphabet_case)
 	}
 }
 
-static void	print_hex(unsigned int n, char alphabet_case)
+static void	print_hex(unsigned long n, char alphabet_case)
 {
 	print_hex_recurse(n >> 4, alphabet_case);
 	if ((n & 15) > 9)
@@ -41,7 +41,12 @@ static void	print_hex(unsigned int n, char alphabet_case)
 	}
 }
 
-void	print_xp(unsigned int n)
+void	print_p(unsigned long p)
+{
+	print_hex(p, 'a');
+}
+
+void	print_x(unsigned int n)
 {
 	print_hex(n, 'a');
 }

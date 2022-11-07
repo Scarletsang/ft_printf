@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_ptrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/08 15:21:27 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 22:28:31 by htsang           ###   ########.fr       */
+/*   Created: 2022/05/08 15:24:30 by htsang            #+#    #+#             */
+/*   Updated: 2022/11/07 22:30:13 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
+/**
+** @param n: a pointer
+** @return the length of the given pointer address if printed out.
+*/
+size_t	ft_ptrlen(size_t n)
+{
+	size_t	len;
 
-size_t	ft_strlen(const char *str);
-
-size_t	ft_numlen(long n, int base);
-
-size_t	ft_ptrlen(size_t n);
-
-char	*ft_strchr(const char *str, int c);
-
-int		ft_isdigit(int c);
-
-#endif
+	len = 0;
+	while (n > 0)
+	{
+		n /= 16;
+		len++;
+	}
+	return (len);
+}

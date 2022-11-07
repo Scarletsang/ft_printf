@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 17:53:10 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 22:34:23 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ char	parse_precision(const char *str, t_parser *states);
 //////    Calculators    //////
 ///////////////////////////////
 
-int		va_arg_numlen(va_list *subs, char format);
+int		peek_va_arg_numlen(va_list *subs, char format);
 
-int		va_arg_strlen(va_list *args);
+int		peek_va_arg_strlen(va_list *subs);
 
 void	calc_states_str(char format, t_parser *states, va_list *subs);
 

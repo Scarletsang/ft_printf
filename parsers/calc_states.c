@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:13:10 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 21:49:52 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 22:31:45 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	calc_states_str(char format, t_parser *states, va_list *subs)
 	states->sub_strlen = 1;
 	if (!ft_strchr("c%", format))
 	{
-		states->sub_strlen = va_arg_strlen(subs);
+		states->sub_strlen = peek_va_arg_strlen(subs);
 	}
 	if (has_precision(states) && states->precision < states->sub_strlen)
 	{
@@ -62,7 +62,7 @@ void	calc_states_num(char format, t_parser *states, va_list *subs)
 	int	space_len;
 	int	zero_len;
 
-	states->sub_strlen = va_arg_numlen(subs, format);
+	states->sub_strlen = peek_va_arg_numlen(subs, format);
 	if (has_precision(states))
 	{
 		space_len = 0;

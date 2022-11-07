@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:51:51 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 21:39:56 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 22:12:37 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,13 @@ void	print_num_sub(char format, va_list *subs)
 	{
 		print_x_upper(va_arg(*subs, unsigned int));
 	}
+	else if (format == 'x')
+	{
+		print_x(va_arg(*subs, unsigned int));
+	}
 	else
 	{
-		print_xp(va_arg(*subs, unsigned int));
+		print_p(va_arg(*subs, unsigned long));
 	}
 }
 

@@ -2,6 +2,8 @@ NAME=libftprintf.a
 LIBFT_SRC= \
 	libft/ft_strchr.c \
 	libft/ft_strlen.c \
+	libft/ft_ptrlen.c \
+	libft/ft_numlen.c \
 	libft/ft_isdigit.c
 PRINTERS_SRC= \
 	printers/cs.c \
