@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:13:10 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 23:11:26 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/08 00:19:42 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	minus_without_neg(int a, int b)
 	return (0);
 }
 
-static int	return_bigger(int a, int b)
+static int	bigger(int a, int b)
 {
 	if (a > b)
 	{
@@ -76,15 +76,17 @@ void	calc_states_num(char format, t_parser *states, va_list *subs)
 		zero_len = minus_without_neg(states->precision, states->sub_strlen);
 		if (states->precision < states->width)
 		{
-			space_len = minus_without_neg(states->width, \
-			return_bigger(zero_len, states->sub_strlen));
+			if (states->sub_strlen < states->precision)
+				space_len = minus_without_neg(states->width, zero_len + \
+				states->sub_strlen + prefixlen(format, states, subs));
+			else
+				space_len = minus_without_neg(states->width, \
+				bigger(zero_len, states->sub_strlen));
 		}
 		states->width = space_len;
 		states->precision = zero_len;
+		return ;
 	}
-	else
-	{
-		states->sub_strlen += prefixlen(format, states, subs);
-		states->width = minus_without_neg(states->width, states->sub_strlen);
-	}
+	states->sub_strlen += prefixlen(format, states, subs);
+	states->width = minus_without_neg(states->width, states->sub_strlen);
 }

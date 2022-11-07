@@ -38,6 +38,9 @@ ${MAIN_OBJS}: ${PARSERS_OBJS} ${PRINTERS_OBJS}
 
 ${PARSERS_OBJS}: ${LIBFT_OBJS}
 
+%.o: %.c
+	${CC} ${CFLAGS} -c $< -o $@
+
 clean: 
 	rm -f ${LIBFT_OBJS} ${PRINTERS_OBJS} ${PARSERS_OBJS} ${MAIN_OBJS}
 
