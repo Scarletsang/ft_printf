@@ -7,6 +7,8 @@ SRC= \
 	parsers/calc_states.c \
 	parsers/utils.c \
 	printers/cs.c \
+	squencers/sequencers.c \
+	squencers/utils.c \
 	printers/diu.c \
 	printers/xXp.c \
 	printers/prefix.c \
