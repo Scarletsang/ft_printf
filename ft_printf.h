@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 17:12:16 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 17:50:41 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,17 @@ int			ft_printf(const char *str, ...);
 
 const char	*run_parser_logic(const char *str, va_list *subs);
 
-int			main_logic(const char *str, va_list *subs);
+int			run_main_logic(const char *str, va_list *subs);
 
 //////////////////////////////
 //////    Sequencers    //////
 //////////////////////////////
 
-void		print_sequence_num(char format, t_parser *states, va_list *subs);
+void		print_sequence_num(char format, t_parser *states, \
+va_list *subs);
 
-void		print_sequence_str(char format, t_parser *states, va_list *subs);
+void		print_sequence_str(char format, t_parser *states, \
+va_list *subs);
 
 void		print_str_sub(char format, t_parser *states, va_list *subs);
 

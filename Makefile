@@ -1,7 +1,7 @@
 NAME=libftprintf.a
 LIBFT_SRC= \
 	libft/ft_strchr.c \
-	libft/ft_strchr.c \
+	libft/ft_strlen.c \
 	libft/ft_isdigit.c
 PRINTERS_SRC= \
 	printers/cs.c \
@@ -17,19 +17,20 @@ PARSERS_SRC= \
 MAIN_SRC= \
 	ft_printf.c \
 	logic.c \
-	sequencers/sequencers.c \
-	sequencers/utils.c
+	sequencers.c \
+	utils.c
 LIBFT_OBJS=${LIBFT_SRC:.c=.o}
 PRINTERS_OBJS=${PRINTERS_SRC:.c=.o}
 PARSERS_OBJS=${PARSERS_SRC:.c=.o}
 MAIN_OBJS=${MAIN_SRC:.c=.o}
+OBJS=${LIBFT_OBJS} ${PRINTERS_OBJS} ${PARSERS_OBJS} ${MAIN_OBJS}
 CC=cc
 CFLAGS= -Wall -Wextra -Werror
 
 all: ${NAME}
 
-${NAME}: ${MAIN_OBJS}
-	ar -rcs ${NAME} ${LIBFT_OBJS} ${PRINTERS_OBJS} ${PARSERS_OBJS} ${MAIN_OBJS}
+${NAME}: ${OBJS}
+	ar -rcs ${NAME} ${OBJS}
 
 ${MAIN_OBJS}: ${PARSERS_OBJS} ${PRINTERS_OBJS}
 

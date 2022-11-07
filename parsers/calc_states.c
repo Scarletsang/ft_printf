@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:13:10 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 16:51:34 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 20:40:15 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	calc_states_num(char format, t_parser *states, va_list *subs)
 	int	zero_len;
 
 	states->sub_strlen = va_arg_numlen(subs, format);
-	if (states->precision == -1)
+	if (has_precision(states))
 	{
 		space_len = 0;
 		zero_len = minus_without_neg(states->precision, states->sub_strlen);

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 20:02:49 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 22:10:59 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 20:41:51 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ static void	print_hex_recurse(unsigned int n, char alphabet_case)
 		print_hex_recurse(n >> 4, alphabet_case);
 		if ((n & 15) > 9)
 		{
-			print_c(n & 15 - 10 + alphabet_case);
+			print_c((n & 15) - 10 + alphabet_case);
 		}
 		else
 		{
-			print_c(n & 15 + '0');
+			print_c((n & 15) + '0');
 		}
 	}
 }
@@ -33,11 +33,11 @@ static void	print_hex(unsigned int n, char alphabet_case)
 	print_hex_recurse(n >> 4, alphabet_case);
 	if ((n & 15) > 9)
 	{
-		print_c(n & 15 - 10 + alphabet_case);
+		print_c((n & 15) - 10 + alphabet_case);
 	}
 	else
 	{
-		print_c(n & 15 + '0');
+		print_c((n & 15) + '0');
 	}
 }
 

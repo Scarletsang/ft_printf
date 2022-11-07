@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 21:01:42 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 16:51:22 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 20:17:04 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ char	has_flags(t_parser *states, char *flags)
 
 char	has_precision(t_parser *states)
 {
-	return (states->precision != -1);
+	return (states->precision > 0);
 }

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 13:18:47 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 16:51:39 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 20:33:59 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	va_arg_intlen(va_list *args)
 	va_list	copy;
 	int		len;
 
-	va_copy(*args, copy);
+	va_copy(copy, *args);
 	len = numlen(va_arg(copy, int), 10);
 	va_end(copy);
 	return (len);
@@ -41,7 +41,7 @@ static int	va_arg_unsigned_intlen(va_list *args, int base)
 	va_list	copy;
 	int		len;
 
-	va_copy(*args, copy);
+	va_copy(copy, *args);
 	len = numlen(va_arg(copy, unsigned int), base);
 	va_end(copy);
 	return (len);
@@ -69,8 +69,8 @@ int	va_arg_strlen(va_list *args)
 	va_list	copy;
 	int		len;
 
-	va_copy(*args, copy);
-	len = ft_strlen(va_arg(copy, char *));
+	va_copy(copy, *args);
+	len = (int) ft_strlen(va_arg(copy, char *));
 	va_end(copy);
 	return (len);
 }

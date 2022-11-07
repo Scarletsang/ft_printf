@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 17:03:24 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 17:53:10 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@
 */
 typedef struct s_parser
 {
-	const char	*flags_end;
-	int			width;
-	int			precision;
-	int			sub_strlen;
+	char	*flags_end;
+	int		width;
+	int		precision;
+	int		sub_strlen;
 }				t_parser;
 
 typedef char	(*t_lexer_func)(const char *, t_parser *);

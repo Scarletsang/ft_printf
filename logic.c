@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:20 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 17:12:56 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 20:45:08 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ const char	*run_parser_logic(const char *str, va_list *subs)
 		states.precision = 0;
 		run_parser(&str, &states, &parse_precision);
 	}
-	if (ft_strchr("cs%", *str))
+	if (ft_strchr("cs%", *--str))
 	{
 		calc_states_str(*str, &states, subs);
 		print_sequence_str(*str, &states, subs);
@@ -41,13 +41,13 @@ const char	*run_parser_logic(const char *str, va_list *subs)
 	return (original_str);
 }
 
-int	main_logic(const char *str, va_list *subs)
+int	run_main_logic(const char *str, va_list *subs)
 {
 	while (*str)
 	{
-		if (*++str == '%')
+		if (*str == '%')
 		{
-			str = run_parser_logic(str, subs);
+			str = run_parser_logic(++str, subs);
 			continue ;
 		}
 		printer(str, 1);
