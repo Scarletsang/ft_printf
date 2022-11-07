@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:20 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 16:56:29 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 17:04:23 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ const char	*run_parser_logic(const char *str, va_list *subs)
 	if (ft_strchr("cs%", *str))
 	{
 		calc_states_str(*str, &states, subs);
-		print_sequence_str(str, &states, subs);
+		print_sequence_str(*str, &states, subs);
 		return (++str);
 	}
 	else if (ft_strchr("diuxXp", *str))
 	{
 		calc_states_num(*str, &states, subs);
-		print_sequence_num(str, &states, subs);
+		print_sequence_num(*str, &states, subs);
 		return (++str);
 	}
 	return (original_str);

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 16:57:48 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 17:03:24 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PARSERS_H
 
 # include <stdarg.h>
-# include "libft.h"
+# include "../libft/libft.h"
 
 /**
  * @brief A strict to be constructed by parsers, and passed

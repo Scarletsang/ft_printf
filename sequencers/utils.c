@@ -6,17 +6,17 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:51:51 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 16:59:18 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 17:09:26 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../libftprintf.h"
 
 void	print_str_sub(char format, t_parser *states, va_list *subs)
 {
 	if (format == 'c')
 	{
-		print_c(va_arg(*subs, char));
+		print_c(va_arg(*subs, int));
 	}
 	else
 	{
@@ -24,7 +24,7 @@ void	print_str_sub(char format, t_parser *states, va_list *subs)
 	}
 }
 
-void	print_num_sub(char format, t_parser *states, va_list *subs)
+void	print_num_sub(char format, va_list *subs)
 {
 	if (ft_strchr("di", format))
 	{

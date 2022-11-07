@@ -6,11 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:50:25 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 16:58:55 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 17:08:07 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../libftprintf.h"
 
 static void	print_sequence_num_with_precision(char format, \
 t_parser *states, va_list *subs)
@@ -19,7 +19,7 @@ t_parser *states, va_list *subs)
 	{
 		print_prefix(format, states);
 		print_zeros(states->precision);
-		print_num_sub(format, states, subs);
+		print_num_sub(format, subs);
 		print_spaces(states->width);
 	}
 	else
@@ -27,7 +27,7 @@ t_parser *states, va_list *subs)
 		print_spaces(states->width);
 		print_prefix(format, states);
 		print_zeros(states->precision);
-		print_num_sub(format, states, subs);
+		print_num_sub(format, subs);
 	}
 }
 
@@ -41,20 +41,20 @@ void	print_sequence_num(char format, t_parser *states, va_list *subs)
 	if (has_flag(states, '-'))
 	{
 		print_prefix(format, states);
-		print_num_sub(format, states, subs);
+		print_num_sub(format, subs);
 		print_spaces(states->width);
 	}
 	else if (has_flag(states, '0'))
 	{
 		print_prefix(format, states);
 		print_zeros(states->precision);
-		print_num_sub(format, states, subs);
+		print_num_sub(format, subs);
 	}
 	else
 	{
 		print_spaces(states->width);
 		print_prefix(format, states);
-		print_num_sub(format, states, subs);
+		print_num_sub(format, subs);
 	}
 }
 
