@@ -2,10 +2,10 @@ NAME=libftprintf.a
 SRC= \
 	libftprintf.c \
 	logic.c \
-	parsers.c \
-	calc_len.c \
-	calc_states.c \
-	utils.c \
+	parsers/parsers.c \
+	parsers/calc_len.c \
+	parsers/calc_states.c \
+	parsers/utils.c \
 	printers/cs.c \
 	printers/diu.c \
 	printers/xXp.c \
