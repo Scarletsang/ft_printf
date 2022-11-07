@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 17:24:36 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 14:39:05 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 21:35:31 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,9 @@ void	print_c(char c)
 void	print_s(char *str, unsigned int len)
 {
 	printer(str, len);
+}
+
+void	print_null(unsigned int len)
+{
+	printer("(null)", len);
 }

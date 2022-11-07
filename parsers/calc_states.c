@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:13:10 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 20:40:15 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 21:49:52 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	prefixlen(char format, t_parser *states)
 void	calc_states_str(char format, t_parser *states, va_list *subs)
 {
 	states->sub_strlen = 1;
-	if (format != '%')
+	if (!ft_strchr("c%", format))
 	{
 		states->sub_strlen = va_arg_strlen(subs);
 	}

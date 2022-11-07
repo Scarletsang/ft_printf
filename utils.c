@@ -6,11 +6,26 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:51:51 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 19:28:58 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 21:39:56 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void	print_maybe_s(t_parser *states, va_list *subs)
+{
+	char	*str;
+
+	str = va_arg(*subs, char *);
+	if (str)
+	{
+		print_s(str, states->sub_strlen);
+	}
+	else
+	{
+		print_null(states->sub_strlen);
+	}
+}
 
 void	print_str_sub(char format, t_parser *states, va_list *subs)
 {
@@ -18,9 +33,13 @@ void	print_str_sub(char format, t_parser *states, va_list *subs)
 	{
 		print_c(va_arg(*subs, int));
 	}
+	else if (format == '%')
+	{
+		print_c('%');
+	}
 	else
 	{
-		print_s(va_arg(*subs, char *), states->sub_strlen);
+		print_maybe_s(states, subs);
 	}
 }
 

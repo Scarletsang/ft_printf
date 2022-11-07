@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 17:50:41 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 21:57:41 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			ft_printf(const char *str, ...);
 //////    Core logic    //////
 //////////////////////////////
 
-const char	*run_parser_logic(const char *str, va_list *subs);
+const char	*run_parser_logic(const char *str, t_parser *states, va_list *subs);
 
 int			run_main_logic(const char *str, va_list *subs);
 

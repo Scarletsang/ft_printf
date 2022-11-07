@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:24:30 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 15:04:37 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 21:47:08 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_strlen(const char *str)
 	size_t	count;
 
 	count = 0;
-	while (*str != '\0')
+	while (*str)
 	{
 		str++;
 		count++;

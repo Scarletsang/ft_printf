@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 21:01:42 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 20:17:04 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 21:55:22 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ char	has_flag(t_parser *states, char flag)
 {
 	int	i;
 
+	if (!states->flags_end)
+	{
+		return (0);
+	}
 	i = 0;
 	while (*(states->flags_end - i) != '%')
 	{
@@ -31,15 +35,17 @@ char	has_flag(t_parser *states, char flag)
 char	has_flags(t_parser *states, char *flags)
 {
 	int		i;
-	char	match;
 
+	if (!states->flags_end)
+	{
+		return (0);
+	}
 	i = 0;
 	while (*(states->flags_end - i) != '%')
 	{
-		match = *ft_strchr(flags, *(states->flags_end - i));
-		if (match)
+		if (ft_strchr(flags, *(states->flags_end - i)))
 		{
-			return (match);
+			return (1);
 		}
 		i++;
 	}

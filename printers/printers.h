@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 19:26:22 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 22:01:25 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 21:35:47 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	print_0x(void);
 void	print_c(char c);
 
 void	print_s(char *str, unsigned int len);
+
+void	print_null(unsigned int len);
 
 void	print_di(int n);
 
