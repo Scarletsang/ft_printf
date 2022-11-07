@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/08 15:21:27 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 17:16:06 by htsang           ###   ########.fr       */
+/*   Created: 2022/05/08 01:47:05 by htsang            #+#    #+#             */
+/*   Updated: 2022/05/08 15:03:10 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-
-# include <stdlib.h>
-
-size_t	ft_strlen(const char *str);
-char	*ft_strchr(const char *str, int c);
-int		ft_isdigit(int c);
-
-#endif
+int	ft_isdigit(int c)
+{
+	if (c > 47 && c < 58)
+	{
+		return (1);
+	}
+	return (0);
+}
