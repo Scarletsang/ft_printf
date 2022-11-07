@@ -6,11 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 20:47:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 22:07:43 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 16:51:29 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "parsers.h"
 
 void	init_parser(t_parser *parser)
 {

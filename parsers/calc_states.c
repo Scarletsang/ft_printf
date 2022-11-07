@@ -6,11 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:13:10 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 22:09:21 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 16:51:34 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "parsers.h"
 
 static int	minus_without_neg(int a, int b)
 {
@@ -36,7 +36,7 @@ static int	prefixlen(char format, t_parser *states)
 	{
 		return (1);
 	}
-	if ((ft_strchr("xX", format) && has_flag(states, '#')) || format == 'p')
+	if (format == 'p' || (ft_strchr("xX", format) && has_flag(states, '#')))
 	{
 		return (2);
 	}
@@ -50,7 +50,7 @@ void	calc_states_str(char format, t_parser *states, va_list *subs)
 	{
 		states->sub_strlen = va_arg_strlen(subs);
 	}
-	if (states->precision != -1 && states->precision < states->sub_strlen)
+	if (has_precision(states) && states->precision < states->sub_strlen)
 	{
 		states->sub_strlen = states->precision;
 	}

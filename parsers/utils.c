@@ -6,11 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 21:01:42 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 22:10:16 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 16:51:22 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "parsers.h"
 
 char	has_flag(t_parser *states, char flag)
 {
@@ -44,4 +44,9 @@ char	has_flags(t_parser *states, char *flags)
 		i++;
 	}
 	return (0);
+}
+
+char	has_precision(t_parser *states)
+{
+	return (states->precision != -1);
 }
