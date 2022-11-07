@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 13:18:47 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 21:51:59 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 22:07:33 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,16 @@ int	va_arg_numlen(va_list *subs, char format)
 int	va_arg_strlen(va_list *args)
 {
 	va_list	copy;
+	char	*str;
 	int		len;
 
 	va_copy(copy, *args);
-	len = (int) ft_strlen(va_arg(copy, char *));
+	str = va_arg(copy, char *);
+	len = 6;
+	if (str)
+	{
+		len = (int) ft_strlen(str);
+	}
 	va_end(copy);
 	return (len);
 }
