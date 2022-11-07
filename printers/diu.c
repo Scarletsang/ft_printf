@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 17:24:36 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/06 13:25:40 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 23:24:29 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	print_long_recurse(long n, int sign)
 {
-	if (n > 0)
+	if (n * sign > 0)
 	{
 		print_long_recurse(n / 10, sign);
 		print_c(n % 10 * sign + '0');

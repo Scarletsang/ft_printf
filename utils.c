@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:51:51 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 22:12:37 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 23:02:41 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,15 @@ void	print_num_sub(char format, va_list *subs)
 	}
 }
 
-void	print_prefix(char format, t_parser *states)
+void	print_prefix(char format, t_parser *states, va_list *subs)
 {
 	if (format == 'p' || (ft_strchr("xX", format) && has_flag(states, '#')))
 	{
 		print_0x();
+	}
+	else if (ft_strchr("di", format) && sub_is_minus(subs))
+	{
+		print_minus();
 	}
 	else if (has_flag(states, '+'))
 	{

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 21:57:41 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 22:43:29 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void		print_str_sub(char format, t_parser *states, va_list *subs);
 
 void		print_num_sub(char format, va_list *subs);
 
-void		print_prefix(char format, t_parser *states);
+void		print_prefix(char format, t_parser *states, va_list *subs);
 
 #endif

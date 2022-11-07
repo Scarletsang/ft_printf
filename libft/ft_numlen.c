@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:24:30 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 22:29:50 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 23:16:28 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,15 @@
 size_t	ft_numlen(long n, int base)
 {
 	size_t	len;
+	int		sign;
 
 	len = 0;
-	while (n > 0)
+	sign = 1;
+	if (n < 0)
+	{
+		sign = -1;
+	}
+	while (n * sign > 0)
 	{
 		n /= base;
 		len++;

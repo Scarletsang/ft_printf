@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:13:10 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 22:31:45 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 23:11:26 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,16 @@ static int	return_bigger(int a, int b)
 	return (b);
 }
 
-static int	prefixlen(char format, t_parser *states)
+static int	prefixlen(char format, t_parser *states, va_list *subs)
 {
-	if (ft_strchr("diu", format) && has_flags(states, "+ "))
+	char	has_plus_or_space;
+
+	has_plus_or_space = has_flags(states, "+ ");
+	if (format == 'u' && has_plus_or_space)
+	{
+		return (1);
+	}
+	if (ft_strchr("di", format) && (sub_is_minus(subs) || has_plus_or_space))
 	{
 		return (1);
 	}
@@ -77,7 +84,7 @@ void	calc_states_num(char format, t_parser *states, va_list *subs)
 	}
 	else
 	{
-		states->sub_strlen += prefixlen(format, states);
+		states->sub_strlen += prefixlen(format, states, subs);
 		states->width = minus_without_neg(states->width, states->sub_strlen);
 	}
 }
