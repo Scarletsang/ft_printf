@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 18:10:25 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/28 16:09:18 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:04:32 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Locate the first given char in a given string.
 **
 ** @param str: a NULL-terminated string
