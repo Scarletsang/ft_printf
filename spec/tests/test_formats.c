@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:22:54 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/08 21:43:29 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/08 22:47:07 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ void	test_unsigned_int(void)
 	ft_printf("%%u \t == |%u|\n", '\t');
 	printf("%%u Lydie == |%u|\n\n", 'L'+'y'+'d'+'i'+'e');
 	ft_printf("%%u Lydie == |%u|\n\n", 'L'+'y'+'d'+'i'+'e');
-
-	system("leaks test > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
 }
 
 void	test_unsigned_hex(void)
@@ -105,8 +103,6 @@ void	test_unsigned_hex(void)
 	ft_printf("f %%-8x \t == |%-8x|\n", '\t');
 	printf("f %%-8.0x Lydie == |%-8.0x|\n\n", 'L'+'y'+'d'+'i'+'e');
 	ft_printf("f %%-8.0x Lydie == |%-8.0x|\n\n", 'L'+'y'+'d'+'i'+'e');
-
-	system("leaks test > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
 }
 
 void	test_char(void)
@@ -149,6 +145,4 @@ void	test_char(void)
 	ft_printf("[%c]\n", '\r');
 	printf("[%c]\n\n", '\t');
 	ft_printf("[%c]\n\n", '\t');
-
-	system("leaks test > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
 }

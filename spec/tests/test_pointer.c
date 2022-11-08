@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:02:21 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/08 21:49:30 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/08 22:47:13 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,24 @@ void	test_pointer(void)
 	ft_printf("%%p [%p]\n", NULL);
 	printf("%%5p: [%5p]\n", NULL);
 	ft_printf("%%5p: [%5p]\n", NULL);
-	printf("%%2p [%2p]\n", NULL);
-	ft_printf("%%2p [%2p]\n", NULL);
-	printf("%.p\n", NULL);
-	ft_printf("%.p\n", NULL);
-	printf("%5.p\n", NULL);
-	ft_printf("%5.p\n", NULL);
-	printf("%2.p\n", NULL);;
-	ft_printf("%2.p\n", NULL);;
-	printf("%9.2p\n", 1234);
-	ft_printf("%9.2p\n", 1234);
-	printf("%2.9p\n", 1234);
-	ft_printf("%2.9p\n", 1234);
-	printf("%.5p\n", 0);
-	ft_printf("%.5p\n", 0);
-	printf("%.0p\n", 0);
-	ft_printf("%.0p\n", 0);
-	printf("%5p\n\n", 0);
-	ft_printf("%5p\n\n", 0);
-
-	system("leaks test > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
+	printf("%%2p: [%2p]\n", NULL);
+	ft_printf("%%2p: [%2p]\n", NULL);
+	printf("%%.p: [%.p]\n", NULL);
+	ft_printf("%%.p: [%.p]\n", NULL);
+	printf("%%5.p: [%5.p]\n", NULL);
+	ft_printf("%%5.p: [%5.p]\n", NULL);
+	printf("%%2.p: [%2.p]\n", NULL);;
+	ft_printf("%%2.p: [%2.p]\n", NULL);;
+	printf("%%9.2p: [%9.2p]\n", 1234);
+	ft_printf("%%9.2p: [%9.2p]\n", 1234);
+	printf("%%2.9p: [%2.9p]\n", 1234);
+	ft_printf("%%2.9p: [%2.9p]\n", 1234);
+	printf("%%.5p: [%.5p]\n", 0);
+	ft_printf("%%.5p: [%.5p]\n", 0);
+	printf("%%.0p: [%.0p]\n", 0);
+	ft_printf("%%.0p: [%.0p]\n", 0);
+	printf("%%5p: [%5p]\n\n", 0);
+	ft_printf("%%5p: [%5p]\n\n", 0);
 }
 
 void	test_string(void)
@@ -61,6 +59,4 @@ void	test_string(void)
 	char *null_str = NULL;
 	printf("%s everywhere\n", null_str);
 	ft_printf("%s everywhere\n", null_str);
-
-	system("leaks test > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
 }

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:39:04 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/08 21:40:09 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/08 22:46:58 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ void	test_zero(void)
 	ft_printf("f %%-5.0i = 0, [%-5.0i]\n", 0);
 	printf("f %%-5.i = 0,  [%-5.i]\n\n", 0);
 	ft_printf("f %%-5.i = 0,  [%-5.i]\n\n", 0);
-
-	system("leaks test > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
 }
 
 void	test_space(void)
@@ -56,8 +54,6 @@ void	test_space(void)
 	ft_printf("f %% 3.7d = 3267,  [% 3.7d]\n", 3267);
 	printf("f %% 3.7i = -2375, [% 3.7i]\n\n", -2375);
 	ft_printf("f %% 3.7i = -2375, [% 3.7i]\n\n", -2375);
-
-	system("leaks test > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
 }
 
 void	test_plus(void)
@@ -80,8 +76,6 @@ void	test_plus(void)
 	ft_printf("f %%+3.7d = 3267,  [%+3.7d]\n", 3267);
 	printf("f %%+3.7i = -2375, [%+3.7i]\n\n", -2375);
 	ft_printf("f %%+3.7i = -2375, [%+3.7i]\n\n", -2375);
-
-	system("leaks test > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
 }
 
 void	test_space_plus(void)
@@ -104,6 +98,4 @@ void	test_space_plus(void)
 	ft_printf("f %%+ 3.7d = 3267,  [%+ 3.7d]\n", 3267);
 	printf("f %%+ 3.7i = -2375, [%+ 3.7i]\n\n", -2375);
 	ft_printf("f %%+ 3.7i = -2375, [%+ 3.7i]\n\n", -2375);
-
-	system("leaks test > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
 }

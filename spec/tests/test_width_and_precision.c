@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:22:54 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/08 21:44:48 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/08 22:47:29 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ void	test_precision(void)
 	ft_printf("f %%.7i = 13862,  [%.7i]\n", 13862);
 	printf("f %%.7i = -23646, [%.7i]\n\n",-23646);
 	ft_printf("f %%.7i = -23646, [%.7i]\n\n",-23646);
-
-	system("leaks test > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
 }
 
 void	test_width(void)
@@ -102,8 +100,6 @@ void	test_width(void)
 	ft_printf("f %%04i = -532, [%04i]\n", -532);
 	printf("f %%04d = -4825, [%04d]\n\n", -4825);
 	ft_printf("f %%04d = -4825, [%04d]\n\n", -4825);
-
-	system("leaks test > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
 }
 
 void	test_width_and_precision(void)
@@ -184,6 +180,4 @@ void	test_width_and_precision(void)
 	ft_printf("f %%0-3.3d = 6983,  [%0-3.3d]\n", 6983);
 	printf("f %%0-3.3i = -8462, [%0-3.3i]\n\n", -8462);
 	ft_printf("f %%0-3.3i = -8462, [%0-3.3i]\n\n", -8462);
-
-	system("leaks test > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
 } 
