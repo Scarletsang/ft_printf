@@ -102,30 +102,3 @@ void	calc_states_str(char format, t_parser *states, va_list *subs)
 	}
 	states->width = minus_without_neg(states->width, states->sub_strlen);
 }
-
-void	calc_states_num(char format, t_parser *states, va_list *subs)
-{
-	int	space_len;
-	int	zero_len;
-
-	states->sub_strlen = peek_va_arg_numlen(subs, format);
-	if (has_precision(states))
-	{
-		space_len = 0;
-		zero_len = minus_without_neg(states->precision, states->sub_strlen);
-		if (states->precision < states->width)
-		{
-			if (states->sub_strlen < states->precision)
-				space_len = minus_without_neg(states->width, zero_len + \
-				states->sub_strlen + prefixlen(format, states, subs));
-			else
-				space_len = minus_without_neg(states->width, \
-				bigger(zero_len, states->sub_strlen));
-		}
-		states->width = space_len;
-		states->precision = zero_len;
-		return ;
-	}
-	states->sub_strlen += prefixlen(format, states, subs);
-	states->width = minus_without_neg(states->width, states->sub_strlen);
-}
