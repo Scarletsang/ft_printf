@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "libftprintf.h": "c",
+    "sstream": "c",
+    "chrono": "c",
+    "libft.h": "c",
+    "parsers.h": "c"
+  }
+}
