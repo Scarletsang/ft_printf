@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   print_substitution.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:51:51 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 23:02:41 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/08 18:45:18 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,13 @@ void	print_str_sub(char format, t_parser *states, va_list *subs)
 	}
 }
 
-void	print_num_sub(char format, va_list *subs)
+void	print_num_sub(char format, char write_zero, va_list *subs)
 {
+	if (write_zero <= 0)
+	{
+		va_arg(*subs, long long);
+		return ;
+	}
 	if (ft_strchr("di", format))
 	{
 		print_di(va_arg(*subs, int));

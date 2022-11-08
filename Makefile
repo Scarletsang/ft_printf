@@ -20,7 +20,7 @@ MAIN_SRC= \
 	ft_printf.c \
 	logic.c \
 	sequencers.c \
-	utils.c
+	substitution_printer.c
 LIBFT_OBJS=${LIBFT_SRC:.c=.o}
 PRINTERS_OBJS=${PRINTERS_SRC:.c=.o}
 PARSERS_OBJS=${PARSERS_SRC:.c=.o}
