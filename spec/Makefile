@@ -27,7 +27,7 @@ re: fclean all
 
 debug: target ${TESTS_OBJS}
 	rm -f debug.out && \
-	${CC} -g -Wformat main.c ${TESTS_OBJS} ${TARGET} -o debug.out
+	${CC} -g -Wformat main.c ${TESTS_OBJS} -L${TARGET} -o debug.out
 
 %.o: %.c
 	${CC} ${CFLAGS} -c $< -o $@
