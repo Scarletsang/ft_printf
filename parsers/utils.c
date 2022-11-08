@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 21:01:42 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 23:02:50 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/08 17:00:06 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	has_flags(t_parser *states, char *flags)
 
 char	has_precision(t_parser *states)
 {
-	return (states->precision > 0);
+	return (states->precision > -1);
 }
 
 char	sub_is_minus(va_list *subs)
@@ -64,6 +64,17 @@ char	sub_is_minus(va_list *subs)
 
 	va_copy(copy, *subs);
 	is_minus = va_arg(copy, int) < 0;
+	va_end(copy);
+	return (is_minus);
+}
+
+char	sub_is_zero(va_list *subs)
+{
+	va_list	copy;
+	char	is_minus;
+
+	va_copy(copy, *subs);
+	is_minus = va_arg(copy, int) == 0;
 	va_end(copy);
 	return (is_minus);
 }
