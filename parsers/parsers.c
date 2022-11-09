@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 20:47:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 18:13:52 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/09 15:40:56 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	init_parser(t_parser *parser)
 	parser->flags_end = NULL;
 	parser->width = 0;
 	parser->precision = -1;
-	parser->sub_strlen = 0;
+	parser->strlen = 0;
 }
 
 void	run_parser(const char **str, t_parser *states, t_lexer_func parser)

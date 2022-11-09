@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:50:25 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/08 17:20:31 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/09 15:40:56 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_parser *states, va_list *subs)
 	{
 		print_prefix(format, states, subs);
 		print_zeros(states->precision);
-		print_num_sub(format, states->sub_strlen, subs);
+		print_num_sub(format, states->strlen, subs);
 		print_spaces(states->width);
 	}
 	else
@@ -27,7 +27,7 @@ t_parser *states, va_list *subs)
 		print_spaces(states->width);
 		print_prefix(format, states, subs);
 		print_zeros(states->precision);
-		print_num_sub(format, states->sub_strlen, subs);
+		print_num_sub(format, states->strlen, subs);
 	}
 }
 

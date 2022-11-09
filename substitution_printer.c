@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:51:51 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/08 20:58:16 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/09 15:40:56 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ static void	print_maybe_s(t_parser *states, va_list *subs)
 	str = va_arg(*subs, char *);
 	if (str)
 	{
-		print_s(str, states->sub_strlen);
+		print_s(str, states->strlen);
 	}
 	else
 	{
-		print_null(states->sub_strlen);
+		print_null(states->strlen);
 	}
 }
 
