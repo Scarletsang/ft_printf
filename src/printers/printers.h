@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 19:26:22 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 22:11:58 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/09 18:07:40 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	print_plus(void);
 
 void	print_minus(void);
 
-void	print_0x(void);
+void	print_0x(char is_upper);
 
 //////////////////////////
 //////    Format    //////

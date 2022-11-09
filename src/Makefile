@@ -4,7 +4,8 @@ LIBFT_SRC= \
 	libft/ft_strlen.c \
 	libft/ft_ptrlen.c \
 	libft/ft_numlen.c \
-	libft/ft_isdigit.c
+	libft/ft_isdigit.c \
+	libft/ft_isupper.c
 PRINTERS_SRC= \
 	printers/cs.c \
 	printers/diu.c \
