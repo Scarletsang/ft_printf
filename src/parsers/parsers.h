@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/08 17:16:39 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/09 15:40:56 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@
  * @param width: length of filler chars (in cs%), 
  * length of spaces (with .) or filler chars (in diuxXp).
  * @param precision: unused (in cs%), length of zeros (in diuxXp)
- * @param sub_strlen: characters to print of the substitution string
+ * @param strlen: characters to print of the substitution string
 */
 typedef struct s_parser
 {
 	char	*flags_end;
 	int		width;
 	int		precision;
-	int		sub_strlen;
+	int		strlen;
 }				t_parser;
 
 typedef char	(*t_lexer_func)(const char *, t_parser *);
