@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:52:46 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/08 22:46:46 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/09 16:20:52 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests/tests.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	test_zero();
 	test_space();
@@ -29,6 +29,5 @@ int	main(void)
 	test_pointer();
 	test_string();
 
-	system("leaks test > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
 	return (0);
 }
