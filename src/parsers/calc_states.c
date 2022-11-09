@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:13:10 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/08 18:35:49 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/09 15:40:56 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,25 @@ static int	prefixlen(char format, t_parser *states, va_list *subs)
 	return (0);
 }
 
-static void	calc_states_num_with_precision(int space_min, int zero_min, \
-int strlen, t_parser *states)
+static void	calc_states_num_with_precision(int prefixlen, t_parser *states)
 {
 	int	space_len;
 	int	zero_len;
 
 	space_len = 0;
 	zero_len = 0;
-	if (zero_min >= space_min)
-		zero_len = minus_without_neg(zero_min, strlen);
+	if (states->precision >= states->width)
+		zero_len = minus_without_neg(states->precision, states->strlen);
 	else
 	{
-		if (strlen < zero_min)
+		if (states->strlen < states->precision)
 		{
-			zero_len = zero_min - strlen;
-			space_len = space_min - zero_min;
+			zero_len = states->precision - states->strlen;
+			space_len = states->width - states->precision - prefixlen;
 		}
-		else if (strlen < space_min)
+		else if (states->strlen < states->width)
 		{
-			space_len = space_min - strlen;
+			space_len = states->width - states->strlen - prefixlen;
 		}
 	}
 	states->width = space_len;
@@ -71,34 +70,33 @@ void	calc_states_num(char format, t_parser *states, va_list *subs)
 {
 	if (sub_is_zero(subs))
 	{
-		states->sub_strlen = !(states->precision == 0);
+		states->strlen = !(states->precision == 0);
 	}
 	else
 	{
-		states->sub_strlen = peek_va_arg_numlen(subs, format);
+		states->strlen = peek_va_arg_numlen(subs, format);
 	}
 	if (has_precision(states))
 	{
-		calc_states_num_with_precision(states->width, states->precision, \
-		states->sub_strlen + prefixlen(format, states, subs), states);
+		calc_states_num_with_precision(prefixlen(format, states, subs), states);
 	}
 	else
 	{
 		states->width = minus_without_neg(states->width, \
-		states->sub_strlen + prefixlen(format, states, subs));
+		states->strlen + prefixlen(format, states, subs));
 	}
 }
 
 void	calc_states_str(char format, t_parser *states, va_list *subs)
 {
-	states->sub_strlen = 1;
+	states->strlen = 1;
 	if (!ft_strchr("c%", format))
 	{
-		states->sub_strlen = peek_va_arg_strlen(subs);
+		states->strlen = peek_va_arg_strlen(subs);
 	}
-	if (has_precision(states) && states->precision < states->sub_strlen)
+	if (has_precision(states) && states->precision < states->strlen)
 	{
-		states->sub_strlen = states->precision;
+		states->strlen = states->precision;
 	}
-	states->width = minus_without_neg(states->width, states->sub_strlen);
+	states->width = minus_without_neg(states->width, states->strlen);
 }
