@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:51:51 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/10 19:46:24 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/10 19:59:38 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	print_num_sub(char format, char write_zero, va_list *subs)
 {
 	if (write_zero <= 0)
 	{
+		va_arg(*subs, int);
 		return ;
 	}
 	if (ft_strchr("di", format))

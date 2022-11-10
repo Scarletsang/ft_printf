@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:13:10 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/10 19:51:48 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/10 20:26:48 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static int	minus_without_neg(int a, int b)
 	return (0);
 }
 
-static int	prefixlen(char format, t_parser *states, va_list *subs)
+static int	prefixlen(char format, t_parser *states, va_list *subs \
+, int is_zero)
 {
 	char	has_plus_or_space;
 
@@ -35,7 +36,8 @@ static int	prefixlen(char format, t_parser *states, va_list *subs)
 	{
 		return (1);
 	}
-	if (format == 'p' || (ft_strchr("xX", format) && has_flag(states, '#')))
+	if (format == 'p' || \
+	(ft_strchr("xX", format) && has_flag(states, '#') && !is_zero))
 	{
 		return (2);
 	}
@@ -69,10 +71,12 @@ static void	calc_states_num_with_precision(int prefixlen, t_parser *states)
 
 void	calc_states_num(char format, t_parser *states, va_list *subs)
 {
+	int	is_zero;
 	int	prefix_len;
 
-	prefix_len = prefixlen(format, states, subs);
-	if (sub_is_zero(format, subs))
+	is_zero = sub_is_zero(format, subs);
+	prefix_len = prefixlen(format, states, subs, is_zero);
+	if (is_zero)
 	{
 		states->strlen = !(states->precision == 0);
 	}
