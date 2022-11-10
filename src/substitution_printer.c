@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:51:51 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/09 18:04:35 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/10 19:46:24 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,18 @@ void	print_num_sub(char format, char write_zero, va_list *subs)
 	}
 	else
 	{
-		print_p(va_arg(*subs, unsigned long));
+		print_p(va_arg(*subs, size_t));
 	}
 }
 
 void	print_prefix(char format, t_parser *states, va_list *subs)
 {
-	if (format == 'p' || (ft_strchr("xX", format) && has_flag(states, '#')))
+	if (format == 'p' || (ft_strchr("xX", format) && \
+	has_flag(states, '#') && !sub_is_zero(format, subs)))
 	{
 		print_0x(ft_isupper(format));
 	}
-	else if (ft_strchr("di", format) && sub_is_minus(subs))
+	else if (ft_strchr("di", format) && peek(subs, &va_is_minus))
 	{
 		print_minus();
 	}

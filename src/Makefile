@@ -14,8 +14,10 @@ PRINTERS_SRC= \
 	printers/printer.c
 PARSERS_SRC= \
 	parsers/parsers.c \
-	parsers/calc_len.c \
+	parsers/calc_numlen.c \
+	parsers/calc_strlen.c \
 	parsers/calc_states.c \
+	parsers/peek.c \
 	parsers/utils.c
 MAIN_SRC= \
 	ft_printf.c \
@@ -49,3 +51,5 @@ fclean: clean
 	rm -f ${NAME}
 
 re: fclean all
+
+bonus: re
