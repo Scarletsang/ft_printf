@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:52:46 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/09 16:20:52 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/11 16:21:00 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 	test_char();
 	test_pointer();
 	test_string();
+	test_big_num();
 
 	return (0);
 }

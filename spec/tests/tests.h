@@ -34,4 +34,7 @@ void	test_plus(void);
 
 void	test_space_plus(void);
 
+
+void	test_big_num(void);
+
 #endif
