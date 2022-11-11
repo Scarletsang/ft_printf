@@ -35,20 +35,20 @@ CFLAGS= -Wall -Wextra -Werror
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	ar -rcs ${NAME} ${OBJS}
+	@ar -rcs ${NAME} ${OBJS}
 
 ${MAIN_OBJS}: ${PARSERS_OBJS} ${PRINTERS_OBJS}
 
 ${PARSERS_OBJS}: ${LIBFT_OBJS}
 
 %.o: %.c
-	${CC} ${CFLAGS} -c $< -o $@
+	@${CC} ${CFLAGS} -c $< -o $@
 
 clean: 
-	rm -f ${LIBFT_OBJS} ${PRINTERS_OBJS} ${PARSERS_OBJS} ${MAIN_OBJS}
+	@rm -f ${LIBFT_OBJS} ${PRINTERS_OBJS} ${PARSERS_OBJS} ${MAIN_OBJS}
 
 fclean: clean
-	rm -f ${NAME}
+	@rm -f ${NAME}
 
 re: fclean all
 
