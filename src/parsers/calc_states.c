@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:13:10 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/10 20:26:48 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/11 14:10:13 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,10 @@ static void	calc_states_num_with_precision(int prefixlen, t_parser *states)
 		if (states->strlen < states->precision)
 		{
 			zero_len = states->precision - states->strlen;
-			space_len = states->width - states->precision - prefixlen;
+			space_len = minus_without_neg(states->width, \
+			states->precision + prefixlen);
 		}
-		else if (states->strlen < states->width)
+		else if (states->strlen + prefixlen < states->width)
 		{
 			space_len = states->width - states->strlen - prefixlen;
 		}
