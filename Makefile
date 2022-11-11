@@ -4,7 +4,8 @@ LIBFT_SRC= \
 	libft/ft_strlen.c \
 	libft/ft_ptrlen.c \
 	libft/ft_numlen.c \
-	libft/ft_isdigit.c
+	libft/ft_isdigit.c \
+	libft/ft_isupper.c
 PRINTERS_SRC= \
 	printers/cs.c \
 	printers/diu.c \
@@ -13,8 +14,10 @@ PRINTERS_SRC= \
 	printers/printer.c
 PARSERS_SRC= \
 	parsers/parsers.c \
-	parsers/calc_len.c \
+	parsers/calc_numlen.c \
+	parsers/calc_strlen.c \
 	parsers/calc_states.c \
+	parsers/peek.c \
 	parsers/utils.c
 MAIN_SRC= \
 	ft_printf.c \
@@ -32,19 +35,21 @@ CFLAGS= -Wall -Wextra -Werror
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	ar -rcs ${NAME} ${OBJS}
+	@ar -rcs ${NAME} ${OBJS}
 
 ${MAIN_OBJS}: ${PARSERS_OBJS} ${PRINTERS_OBJS}
 
 ${PARSERS_OBJS}: ${LIBFT_OBJS}
 
 %.o: %.c
-	${CC} ${CFLAGS} -c $< -o $@
+	@${CC} ${CFLAGS} -c $< -o $@
 
 clean: 
-	rm -f ${LIBFT_OBJS} ${PRINTERS_OBJS} ${PARSERS_OBJS} ${MAIN_OBJS}
+	@rm -f ${LIBFT_OBJS} ${PRINTERS_OBJS} ${PARSERS_OBJS} ${MAIN_OBJS}
 
 fclean: clean
-	rm -f ${NAME}
+	@rm -f ${NAME}
 
 re: fclean all
+
+bonus: re

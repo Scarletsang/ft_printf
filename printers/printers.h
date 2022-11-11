@@ -6,12 +6,14 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 19:26:22 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 22:11:58 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/10 18:27:51 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRINTERS_H
 # define PRINTERS_H
+
+# include <stdlib.h>
 
 ////////////////////////
 //////    Core    //////
@@ -33,7 +35,7 @@ void	print_plus(void);
 
 void	print_minus(void);
 
-void	print_0x(void);
+void	print_0x(char is_upper);
 
 //////////////////////////
 //////    Format    //////
@@ -53,6 +55,6 @@ void	print_x(unsigned int n);
 
 void	print_x_upper(unsigned int n);
 
-void	print_p(unsigned long p);
+void	print_p(size_t p);
 
 #endif

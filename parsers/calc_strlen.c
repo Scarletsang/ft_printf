@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   calc_strlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/08 15:21:27 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/09 18:07:10 by htsang           ###   ########.fr       */
+/*   Created: 2022/11/06 13:18:47 by htsang            #+#    #+#             */
+/*   Updated: 2022/11/10 19:44:33 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "parsers.h"
 
-# include <stdlib.h>
+static long long	va_strlen(va_list *subs)
+{
+	char	*str;
+	int		len;
 
-size_t	ft_strlen(const char *str);
+	str = va_arg(*subs, char *);
+	len = 6;
+	if (str)
+	{
+		len = (int) ft_strlen(str);
+	}
+	return (len);
+}
 
-size_t	ft_numlen(long n, int base);
-
-size_t	ft_ptrlen(size_t n);
-
-char	*ft_strchr(const char *str, int c);
-
-int		ft_isdigit(int c);
-
-int		ft_isupper(int c);
-
-#endif
+int	calc_strlen(va_list *subs)
+{
+	return (peek(subs, &va_strlen));
+}
