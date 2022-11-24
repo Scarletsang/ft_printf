@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/10 19:43:31 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/24 16:31:43 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_parser
 	int		strlen;
 }				t_parser;
 
-typedef char		(*t_lexer_func)(const char *, t_parser *);
+typedef char		(*t_parser_func)(const char *, t_parser *);
 
 typedef long long	(*t_peek_func)(va_list *);
 
@@ -52,7 +52,7 @@ typedef long long	(*t_peek_func)(va_list *);
 
 void		init_parser(t_parser *parser);
 
-void		run_parser(const char **str, t_parser *states, t_lexer_func parser);
+void		run_parser(const char **str, t_parser *states, t_parser_func parser);
 
 char		parse_flags(const char *str, t_parser *states);
 
