@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:39:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/24 16:31:43 by htsang           ###   ########.fr       */
+/*   Updated: 2023/01/04 22:54:18 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ typedef long long	(*t_peek_func)(va_list *);
 
 void		init_parser(t_parser *parser);
 
-void		run_parser(const char **str, t_parser *states, t_parser_func parser);
+void		run_parser(const char **str, t_parser *states, \
+t_parser_func parser);
 
 char		parse_flags(const char *str, t_parser *states);
 
