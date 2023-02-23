@@ -31,6 +31,9 @@ MAIN_OBJS=${MAIN_SRC:.c=.o}
 OBJS=${LIBFT_OBJS} ${PRINTERS_OBJS} ${PARSERS_OBJS} ${MAIN_OBJS}
 CC=cc
 CFLAGS= -Wall -Wextra -Werror
+ifdef FSANITIZE
+	CFLAGS+= -g3 -fsanitize=address
+endif
 
 all: ${NAME}
 
