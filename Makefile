@@ -28,7 +28,7 @@ LIBFT_OBJS=${LIBFT_SRC:.c=.o}
 PRINTERS_OBJS=${PRINTERS_SRC:.c=.o}
 PARSERS_OBJS=${PARSERS_SRC:.c=.o}
 MAIN_OBJS=${MAIN_SRC:.c=.o}
-OBJS=${LIBFT_OBJS} ${PRINTERS_OBJS} ${PARSERS_OBJS} ${MAIN_OBJS}
+OBJS=${addprefix src/,${LIBFT_OBJS} ${PRINTERS_OBJS} ${PARSERS_OBJS} ${MAIN_OBJS}}
 CC=cc
 CFLAGS= -Wall -Wextra -Werror
 ifdef FSANITIZE
@@ -47,8 +47,8 @@ ${PARSERS_OBJS}: ${LIBFT_OBJS}
 %.o: %.c
 	@${CC} ${CFLAGS} -c $< -o $@
 
-clean: 
-	@rm -f ${LIBFT_OBJS} ${PRINTERS_OBJS} ${PARSERS_OBJS} ${MAIN_OBJS}
+clean:
+	@rm -f ${OBJS}
 
 fclean: clean
 	@rm -f ${NAME}
