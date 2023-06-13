@@ -2,7 +2,7 @@
 TARGET_NAME=libftprintf.a
 
 NAME=debug.out
-TARGET_DIR=../src
+TARGET_DIR=..
 TESTS:= $(shell find tests -name '*.c')
 TARGET=${TARGET_DIR}/${TARGET_NAME}
 TESTS_OBJS=${TESTS:.c=.o}
