@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 21:01:42 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/10 19:15:25 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 02:16:44 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsers.h"
 
-char	has_flag(t_parser *states, char flag)
+char	printf_has_flag(struct s_printf_parser *states, char flag)
 {
 	int	i;
 
@@ -32,7 +32,7 @@ char	has_flag(t_parser *states, char flag)
 	return (0);
 }
 
-char	has_flags(t_parser *states, char *flags)
+char	printf_has_flags(struct s_printf_parser *states, char *flags)
 {
 	int		i;
 
@@ -52,7 +52,7 @@ char	has_flags(t_parser *states, char *flags)
 	return (0);
 }
 
-char	has_precision(t_parser *states)
+char	printf_has_precision(struct s_printf_parser *states)
 {
 	return (states->precision > -1);
 }

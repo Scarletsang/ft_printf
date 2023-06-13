@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 21:39:39 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 17:43:08 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 01:51:55 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_printf(const char *str, ...)
 	int		size;
 
 	va_start(subs, str);
-	size = run_main_logic(str, &subs);
+	size = printf_control(str, &subs);
 	va_end(subs);
 	return (size);
 }

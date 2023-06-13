@@ -6,23 +6,23 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 17:24:36 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 21:35:31 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 03:35:52 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printers.h"
 
-void	print_c(char c)
+int	printf_c(char c)
 {
-	printer(&c, 1);
+	return (write(STDOUT_FILENO, &c, 1));
 }
 
-void	print_s(char *str, unsigned int len)
+int	printf_s(char *str, unsigned int len)
 {
-	printer(str, len);
+	return (write(STDOUT_FILENO, str, len));
 }
 
-void	print_null(unsigned int len)
+int	printf_null(unsigned int len)
 {
-	printer("(null)", len);
+	return (write(STDOUT_FILENO, "(null)", len));
 }

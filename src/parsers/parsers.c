@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 20:47:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/24 16:31:43 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 02:35:40 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsers.h"
 
-void	init_parser(t_parser *parser)
+void	printf_parser_init(struct s_printf_parser *parser)
 {
 	parser->flags_end = NULL;
 	parser->width = 0;
@@ -20,7 +20,8 @@ void	init_parser(t_parser *parser)
 	parser->strlen = 0;
 }
 
-void	run_parser(const char **str, t_parser *states, t_parser_func parser)
+void	printf_parser_run(char **str, struct s_printf_parser *states, \
+t_parser_func parser)
 {
 	while (*str)
 	{
@@ -35,7 +36,7 @@ void	run_parser(const char **str, t_parser *states, t_parser_func parser)
 	}
 }
 
-char	parse_flags(const char *str, t_parser *states)
+char	printf_parse_flags(const char *str, struct s_printf_parser *states)
 {
 	char	check_failed;
 
@@ -48,7 +49,7 @@ char	parse_flags(const char *str, t_parser *states)
 	return (check_failed);
 }
 
-char	parse_width(const char *str, t_parser *states)
+char	printf_parse_width(const char *str, struct s_printf_parser *states)
 {
 	char	check_failed;
 
@@ -61,7 +62,7 @@ char	parse_width(const char *str, t_parser *states)
 	return (check_failed);
 }
 
-char	parse_precision(const char *str, t_parser *states)
+char	printf_parse_precision(const char *str, struct s_printf_parser *states)
 {
 	char	check_failed;
 
