@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 13:18:47 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/10 19:44:33 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 04:23:34 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static long long	va_strlen(va_list *subs)
 	return (len);
 }
 
-int	calc_strlen(va_list *subs)
+int	printf_calc_strlen(va_list *subs)
 {
-	return (peek(subs, &va_strlen));
+	return (printf_va_peek(subs, &va_strlen));
 }

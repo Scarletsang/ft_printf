@@ -1,45 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printer.c                                          :+:      :+:    :+:   */
+/*   sequencer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 00:25:15 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/11 16:14:45 by htsang           ###   ########.fr       */
+/*   Created: 2022/11/07 15:50:25 by htsang            #+#    #+#             */
+/*   Updated: 2023/06/13 03:38:34 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "printers.h"
 
-int	*printer(const char *str, unsigned int len)
+void	printf_sequencer_init(struct s_printf_sequencer *seq)
 {
-	static int	size = 0;
-	int			error;
-
-	if (size < 0)
-	{
-		return (&size);
-	}
-	error = write(1, str, len * sizeof(char));
-	if (error < 0)
-	{
-		size = error;
-	}
-	else
-	{
-		size += len;
-	}
-	return (&size);
+	seq->sum = 0;
 }
 
-int	close_printer(void)
+int	printf_sequence(struct s_printf_sequencer *seq, int ret)
 {
-	int	size;
-	int	*size_ptr;
-
-	size_ptr = printer("", 0);
-	size = *size_ptr;
-	*size_ptr = 0;
-	return (size);
+	if (ret < 0)
+		return (EXIT_FAILURE);
+	seq->sum += ret;
+	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 19:26:22 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/10 18:27:51 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 04:19:48 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,59 @@
 # define PRINTERS_H
 
 # include <stdlib.h>
+# include <unistd.h>
 
 ////////////////////////
 //////    Core    //////
 ////////////////////////
 
-int		*printer(const char *str, unsigned int len);
+struct s_printf_sequencer
+{
+	int	sum;
+};
 
-int		close_printer(void);
+void	printf_sequencer_init(struct s_printf_sequencer *seq);
+
+int		printf_sequence(struct s_printf_sequencer *seq, int ret);
 
 //////////////////////////
 //////    Prefix    //////
 //////////////////////////
 
-void	print_zeros(unsigned int len);
+int		printf_zeros(unsigned int len);
 
-void	print_spaces(unsigned int len);
+int		printf_spaces(unsigned int len);
 
-void	print_plus(void);
+int		printf_plus(void);
 
-void	print_minus(void);
+int		printf_minus(void);
 
-void	print_0x(char is_upper);
+int		printf_0x(char is_upper);
 
 //////////////////////////
 //////    Format    //////
 //////////////////////////
 
-void	print_c(char c);
+int		printf_c(char c);
 
-void	print_s(char *str, unsigned int len);
+int		printf_s(char *str, unsigned int len);
 
-void	print_null(unsigned int len);
+int		printf_null(unsigned int len);
 
-void	print_di(int n);
+int		printf_di(int n);
 
-void	print_u(unsigned int n);
+int		printf_u(unsigned int n);
 
-void	print_x(unsigned int n);
+int		printf_x(unsigned int n);
 
-void	print_x_upper(unsigned int n);
+int		printf_x_upper(unsigned int n);
 
-void	print_p(size_t p);
+int		printf_p(size_t p);
+
+//////////////////////////
+//////   Private	//////
+//////////////////////////
+
+int		printf_hex(size_t n, char alphabet_case);
 
 #endif

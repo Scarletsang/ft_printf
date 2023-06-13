@@ -6,48 +6,58 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 19:22:54 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/09 18:03:33 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 04:19:37 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printers.h"
 
-void	print_zeros(unsigned int len)
+int	printf_zeros(unsigned int len)
 {
+	struct s_printf_sequencer	seq;
+
+	printf_sequencer_init(&seq);
 	while (len)
 	{
-		printer("0", 1);
+		if (printf_sequence(&seq, write(STDOUT_FILENO, "0", 1)))
+			return (-1);
 		len--;
 	}
+	return (seq.sum);
 }
 
-void	print_spaces(unsigned int len)
+int	printf_spaces(unsigned int len)
 {
+	struct s_printf_sequencer	seq;
+
+	printf_sequencer_init(&seq);
 	while (len)
 	{
-		printer(" ", 1);
+		if (printf_sequence(&seq, write(STDOUT_FILENO, " ", 1)))
+			return (-1);
 		len--;
 	}
+	return (seq.sum);
 }
 
-void	print_plus(void)
+int	printf_plus(void)
 {
-	printer("+", 1);
+	return (write(STDOUT_FILENO, "+", 1));
 }
 
-void	print_minus(void)
+int	printf_minus(void)
 {
-	printer("-", 1);
+	return (write(STDOUT_FILENO, "-", 1));
 }
 
-void	print_0x(char is_upper)
+int	printf_0x(char is_upper)
 {
 	if (is_upper)
 	{
-		printer("0X", 2);
+		return (write(STDOUT_FILENO, "0X", 2));
 	}
 	else
 	{
-		printer("0x", 2);
+		return (write(STDOUT_FILENO, "0x", 2));
 	}
 }
